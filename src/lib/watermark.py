@@ -4,16 +4,16 @@ from PIL import Image
 class Watermark:
     def __init__(self, path: str):
         grey = np.array(Image.open(path).convert('L'))
-        self._h, self._w = grey.shape
+        self._height, self._width = grey.shape
         self._data = grey > 128
     
     @property
-    def h(self):
-        return self._h
+    def height(self):
+        return self._height
     
     @property
-    def w(self):
-        return self._w
+    def width(self):
+        return self._width
     
     @property
     def data(self):

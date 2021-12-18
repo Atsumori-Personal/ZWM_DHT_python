@@ -8,7 +8,7 @@ class Audio:
     def __init__(self, path: str):
         self._fs, self._y = wf.read(path)
         dim = self._y.shape
-        self._sz = dim[0]
+        self._size = dim[0]
         # convert to monaural
         if len(dim) != 1:
             self._y = self._y[:, 0]
@@ -23,7 +23,7 @@ class Audio:
 
     @property
     def sz(self):
-        return self._sz
+        return self._size
     
     def normalize(self):
         """
@@ -61,7 +61,7 @@ class Audio:
         Q : Number of samples each frame has
         """
         M = height * width
-        L = self._sz
+        L = self._size
         C = self.dht(self.normalize())
         Q = math.floor(L / M)
 
