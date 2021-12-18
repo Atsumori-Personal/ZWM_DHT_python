@@ -7,7 +7,11 @@ import matplotlib.pyplot as plt
 class Audio:
     def __init__(self, path: str):
         self._fs, self._y = wf.read(path)
-        self._sz = self._y.size
+        dim = self._y.shape
+        self._sz = dim[0]
+        # convert to monaural
+        if len(dim) != 1:
+            self._y = self._y[:, 0]
     
     @property
     def fs(self):
