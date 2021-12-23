@@ -13,7 +13,7 @@ sys.path.append(str(CURRENT_DIR) + '/lib')
 from watermark import Watermark
 from audio import Audio
 from key import Key
-
+from myeval import ber
 
 """
 Embed
@@ -36,10 +36,12 @@ Detection
     under the assumption that we know the key K.
 """
 d_audio = Audio(CURRENT_DIR + "/sound/Thousand Yard Stare.wav")
+# d_audio = Audio(CURRENT_DIR + "/sound/Thousand Yard Stare(lpf).wav")
 d_X = d_audio.process(K.height, K.width)
 
 d_W = np.logical_xor(K.data, d_X)
 
 plt.imshow(d_W)
 
+print("BER : " + str(ber(W.data, d_W)))
 # %%
