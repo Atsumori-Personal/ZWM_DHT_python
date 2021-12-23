@@ -41,6 +41,7 @@ d_X = d_audio.process(K.height, K.width)
 
 d_W = np.logical_xor(K.data, d_X)
 
+print(d_W)
 plt.imshow(d_W)
 
 print("BER : " + str(ber(W.data, d_W)))
