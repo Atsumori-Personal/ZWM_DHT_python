@@ -1,4 +1,4 @@
-# Zero Watermarking Algorithm
+# Zero Watermarking Algorithm by DHT
 
 This project is built on the following.  
 [ThesisWatermarking](https://github.com/emtiajium/ThesisWatermarking)
